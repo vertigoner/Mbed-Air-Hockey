@@ -1,3 +1,9 @@
+# mbed Air Hockey
+
+Virtual web air hockey game using mbed controllers with speakers and IMU-based tilt controls. Controller Node.js servers run on the client computer(s) connected to the mbed controllers via serial. These servers communicate with the main game server using the [WebSocket Protocol](https://tools.ietf.org/html/rfc6455), which is far better for streaming data in real time than REST (HTTP).
+
+**[Source code on GT Github](https://github.gatech.edu/nroberts32/mbed-air-hockey)**
+
 ## Installation and Setup
 
 This project operates through a few different Node.js servers: the main game server, and controller servers running for the two connected controllers.
