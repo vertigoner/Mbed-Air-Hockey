@@ -70,6 +70,6 @@ node server.js <serial port path>
       
 ## Networking Behind the Scenes
 
-Websockets were used extensively for streaming data in real time between the game server, connected browser clients, and the two controller servers. The controller server talks to the mbed controllers via a seriall connection at a 9600 baud rate.
+Websockets were used extensively for streaming data in real time between the game server, connected browser clients, and the two controller servers. The controller server talks to the mbed controllers via a serial connection at a 9600 baud rate.
 
 ![Networking Block Diagram](https://raw.githubusercontent.com/vertigoner/Mbed-Air-Hockey/master/Untitled%20Diagram.png)
