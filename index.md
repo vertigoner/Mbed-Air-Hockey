@@ -9,27 +9,27 @@ This project operates through a few different Node.js servers: the main game ser
 
 ### Game Server Setup
 
-1. Make sure node and npm are installed. If not, consult this [installation guide](https://nodejs.org/en/download/package-manager/)
+Make sure node and npm are installed. If not, consult this [installation guide](https://nodejs.org/en/download/package-manager/)
 
 ```bash
 node -v
 npm -v
 ```
    
-2. Clone the repository
+Clone the repository
 
 ```bash
 git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
 ```
 
-3. Go to the game server directory and install dependencies
+Go to the game server directory and install dependencies
 
 ```bash
 cd mbed-air-hocket/game_server
 npm install
 ```
 
-4. Spin up the server
+Spin up the server
 
 ```bash
 npm start
@@ -37,33 +37,33 @@ npm start
 
 ### Controller Server Setup
 
-1. Make sure node and npm are installed on the client device as well.
+Make sure node and npm are installed on the client device as well.
 
 ```bash
 node -v
 npm -v
 ```
 
-2. Clone the repository
+Clone the repository
 
 ```bash
 git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
 ```
 
-3. Go to the controller server directory and install dependencies
+Go to the controller server directory and install dependencies
 
 ```bash
 cd mbed-air-hocket/controller_server
 npm install(
 ```
 
-4. Use the following command to check available serial ports
+Use the following command to check available serial ports
 
 ```bash
 node listPorts.js
 ```
 
-5. Use the following command to check available serial ports
+Use the following command to check available serial ports
 
 ```bash
 node server.js <serial port path>
