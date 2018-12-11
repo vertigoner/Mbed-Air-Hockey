@@ -70,7 +70,7 @@ This project operates through a few different Node.js servers: the main game ser
       node server.js <serial port path>
       ```
       
-## Servers and Networking Behind the Scenes
+## Networking Behind the Scenes
 
 Websockets were used extensively for streaming data in real time between the game server, connected browser clients, and the two controller servers. The controller server talks to the mbed controllers via a seriall connection at a 9600 baud rate.
 
