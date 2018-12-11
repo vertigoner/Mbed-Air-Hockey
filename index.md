@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+## Installation and Setup
 
-You can use the [editor on GitHub](https://github.com/vertigoner/Mbed-Air-Hockey/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+This project operates through a few different Node.js servers: the main game server, and controller servers running for the two connected controllers.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Game Server Setup
 
-### Markdown
+1. Make sure node and npm are installed. If not, consult this [installation guide](https://nodejs.org/en/download/package-manager/)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+      `node -v`
 
-```markdown
-Syntax highlighted code block
+      `npm -v`
+      
+2. Clone the repository
 
-# Header 1
-## Header 2
-### Header 3
+      `git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git`
+      
+3. Go to the game server directory and install dependencies
 
-- Bulleted
-- List
+      `cd mbed-air-hocket/game_server`
+      
+      `npm install`
+      
+4. Spin up the server
 
-1. Numbered
-2. List
+      `npm start`
+      
+### Controller Server Setup
 
-**Bold** and _Italic_ and `Code` text
+1. Make sure node and npm are installed on the client device as well.
 
-[Link](url) and ![Image](src)
-```
+      `node -v`
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+      `npm -v`
+      
+2. Clone the repository
 
-### Jekyll Themes
+      `git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git`
+      
+3. Go to the controller server directory and install dependencies
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vertigoner/Mbed-Air-Hockey/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+      `cd mbed-air-hocket/controller_server`
+      
+      `npm install`
+      
+4. Use the following command to check available serial ports
 
-### Support or Contact
+      `node listPorts.js`
+      
+5. Use the following command to check available serial ports
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+      `node server.js <serial port path>`
