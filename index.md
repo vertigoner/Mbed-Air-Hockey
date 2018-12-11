@@ -75,3 +75,5 @@ node server.js <serial port path>
 Websockets were used extensively for streaming data in real time between the game server, connected browser clients, and the two controller servers. The controller server talks to the mbed controllers via a serial connection at a 9600 baud rate.
 
 ![Networking Block Diagram](https://raw.githubusercontent.com/vertigoner/Mbed-Air-Hockey/master/Untitled%20Diagram.png)
+
+This modular model offers significant scalability. The game Node.js server could be installed on a higher-powered machine with a global IP. Then, as long as a client anywhere in the world has a controller and the controller client server installed, they could play. A future server improvement could also be match-making, with multiple running instances of the game.
