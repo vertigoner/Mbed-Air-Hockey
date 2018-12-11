@@ -10,10 +10,10 @@ This project operates through a few different Node.js servers: the main game ser
 
 1. Make sure node and npm are installed. If not, consult this [installation guide](https://nodejs.org/en/download/package-manager/)
 
-```bash
-node -v
-npm -v
-```
+      ```bash
+      node -v
+      npm -v
+      ```
       
 2. Clone the repository
 
