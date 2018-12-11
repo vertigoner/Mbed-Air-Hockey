@@ -1,73 +1,6 @@
 Virtual web air hockey game using mbed controllers with speakers and IMU-based tilt controls. Controller Node.js servers run on the client computer(s) connected to the mbed controllers via serial. These servers communicate with the main game server using the [WebSocket Protocol](https://tools.ietf.org/html/rfc6455), which is far better for streaming data in real time than REST (HTTP).
 
 
-## Installation and Setup
-
-This project operates through a few different Node.js servers: the main game server, and controller servers running for the two connected controllers.
-
-### Game Server Setup
-
-Make sure node and npm are installed. If not, consult this [installation guide](https://nodejs.org/en/download/package-manager/)
-
-```bash
-node -v
-npm -v
-```
-   
-Clone the repository
-
-```bash
-git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
-```
-
-Go to the game server directory and install dependencies
-
-```bash
-cd mbed-air-hocket/game_server
-npm install
-```
-
-Spin up the server
-
-```bash
-npm start
-```
-
-### Controller Server Setup
-
-Make sure node and npm are installed on the client device as well.
-
-```bash
-node -v
-npm -v
-```
-
-Clone the repository
-
-```bash
-git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
-```
-
-Go to the controller server directory and install dependencies
-
-```bash
-cd mbed-air-hocket/controller_server
-npm install(
-```
-
-Use the following command to check available serial ports
-
-```bash
-node listPorts.js
-```
-
-Use the following command to check available serial ports
-
-```bash
-node server.js <serial port path>
-```
-
-
 ## The Game Itself
 
 An HTTP server running on the same IP as the game engine serves HTML, JavaScript and CSS to a client browser. The graphics are all vector-based, and were created in [Adobe Illustrator](https://www.adobe.com/products/illustrator.html). The [Snap.svg](http://snapsvg.io/) JavaScript library interfaces between DOM SVG elements and incoming positional data from the game server. 
@@ -151,3 +84,70 @@ In order to simulate the friction of the puck with the table, the puck's velocit
 In order to simulate varying collision elasticities between the puck and the strikers, the puck's velocity is scaled with an inertia factor after each collision. This factor can be changed to make the puck bouce from the strikers faster or slower:
 
       vNew = elasticity * (vReflected + vStriker)
+
+
+## Installation and Setup
+
+This project operates through a few different Node.js servers: the main game server, and controller servers running for the two connected controllers.
+
+### Game Server Setup
+
+Make sure node and npm are installed. If not, consult this [installation guide](https://nodejs.org/en/download/package-manager/)
+
+```bash
+node -v
+npm -v
+```
+   
+Clone the repository
+
+```bash
+git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
+```
+
+Go to the game server directory and install dependencies
+
+```bash
+cd mbed-air-hocket/game_server
+npm install
+```
+
+Spin up the server
+
+```bash
+npm start
+```
+
+### Controller Server Setup
+
+Make sure node and npm are installed on the client device as well.
+
+```bash
+node -v
+npm -v
+```
+
+Clone the repository
+
+```bash
+git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
+```
+
+Go to the controller server directory and install dependencies
+
+```bash
+cd mbed-air-hocket/controller_server
+npm install
+```
+
+Use the following command to check available serial ports
+
+```bash
+node listPorts.js
+```
+
+Use the following command to check available serial ports
+
+```bash
+node server.js <serial port path>
+```
