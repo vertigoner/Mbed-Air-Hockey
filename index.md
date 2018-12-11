@@ -2,6 +2,8 @@ Virtual web air hockey game using mbed controllers with speakers and IMU-based t
 
 **[Source code on GT Github](https://github.gatech.edu/nroberts32/mbed-air-hockey)**
 
+![Game Gif](https://raw.githubusercontent.com/vertigoner/Mbed-Air-Hockey/master/game.gif)
+
 ## Installation and Setup
 
 This project operates through a few different Node.js servers: the main game server, and controller servers running for the two connected controllers.
