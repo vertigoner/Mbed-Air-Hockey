@@ -100,6 +100,6 @@ In order to simulate the friction of the puck with the table, the puck's velocit
 
       vNew = inertia * vOld
 
-In order to simulate collision inelasticity between the puck and the strikers, the puck's velocity is scaled with an inertia factor after each collision. This factor can be changed to make to puck bouce from the strikers faster or slower:
+In order to simulate varying collision elasticities between the puck and the strikers, the puck's velocity is scaled with an inertia factor after each collision. This factor can be changed to make the puck bouce from the strikers faster or slower:
 
       vNew = elasticity * (vReflected + vStriker)
