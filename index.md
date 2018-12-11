@@ -137,12 +137,12 @@ The puck's position is updated using a numerical integration of the velocity whi
 #### Puck collision with a Wall
 If the puck's new position lies beyond a wall, the puck's position and velocity are reflected by said wall.
 
-![Puck collision with Wall](https://github.com/vertigoner/Mbed-Air-Hockey/blob/master/collision%20with%20wall.png)
+![Puck collision with Wall](https://raw.githubusercontent.com/vertigoner/Mbed-Air-Hockey/master/collision%20with%20wall.png)
 
 #### Puck collision with a Striker
 If the puck's new position coincides with a striker's position, the puck's position and velocity are reflected by said striker at the collision angle and the striker's velocity is added to the puck's.
 
-![Puck collision with Striker](https://github.com/vertigoner/Mbed-Air-Hockey/blob/master/collision%20with%20striker.png)
+![Puck collision with Striker](https://raw.githubusercontent.com/vertigoner/Mbed-Air-Hockey/master/collision%20with%20striker.png)
 
 ### Inertia and Elasicity
 
