@@ -2,6 +2,7 @@ Virtual web air hockey game using mbed controllers with speakers and IMU-based t
 
 **[Source code on GT Github](https://github.gatech.edu/nroberts32/mbed-air-hockey)**
 
+
 ## Installation and Setup
 
 This project operates through a few different Node.js servers: the main game server, and controller servers running for the two connected controllers.
@@ -14,26 +15,26 @@ This project operates through a few different Node.js servers: the main game ser
 node -v
 npm -v
 ```
-      
+   
 2. Clone the repository
 
 ```bash
 git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
 ```
-      
+
 3. Go to the game server directory and install dependencies
 
 ```bash
 cd mbed-air-hocket/game_server
 npm install
 ```
-      
+
 4. Spin up the server
 
 ```bash
 npm start
 ```
-      
+
 ### Controller Server Setup
 
 1. Make sure node and npm are installed on the client device as well.
@@ -42,38 +43,40 @@ npm start
 node -v
 npm -v
 ```
-      
+
 2. Clone the repository
 
 ```bash
 git clone https://github.gatech.edu/nroberts32/mbed-air-hockey.git
 ```
-      
+
 3. Go to the controller server directory and install dependencies
 
 ```bash
 cd mbed-air-hocket/controller_server
 npm install(
 ```
-      
+
 4. Use the following command to check available serial ports
 
 ```bash
 node listPorts.js
 ```
-      
+
 5. Use the following command to check available serial ports
 
 ```bash
 node server.js <serial port path>
 ```
 
+
 ## The Game Itself
 
 An HTTP server running on the same IP as the game engine serves HTML, JavaScript and CSS to a client browser. The graphics are all vector-based, and were created in [Adobe Illustrator](https://www.adobe.com/products/illustrator.html). The [Snap.svg](http://snapsvg.io/) JavaScript library interfaces between DOM SVG elements and incoming positional data from the game server. 
 
-![Game Gif]()
-      
+![Game Gif](https://raw.githubusercontent.com/vertigoner/Mbed-Air-Hockey/master/2018-12-11%2015.52.19.gif)
+
+
 ## Servers and Networking Behind the Scenes
 
 Websockets were used extensively for streaming data in real time between the game server, connected browser clients, and the two controller servers. The controller server talks to the mbed controllers via a seriall connection at a 9600 baud rate.
@@ -119,6 +122,7 @@ recv_buf[0] = '1' // puck hit
 recv_buf[0] = '2' // player scored
 ```
 Minimal sends and receives ensure that striker can stream data at a very high rate (we tested at a maximum of 10ms/packet).
+
 
 ## Kinematics
 
