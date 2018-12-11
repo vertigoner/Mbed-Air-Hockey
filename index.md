@@ -78,7 +78,7 @@ Websockets were used extensively for streaming data in real time between the gam
 
 ### Position
 
-The puck's position is updated using numerical integration of the velocity which goes as follows:
+The puck's position is updated using a numerical integration of the velocity which goes as follows:
       
       pNew = pOld + v*Δt
       
