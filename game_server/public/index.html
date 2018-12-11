@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mbed Air Hockey</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <button id="flip">Flip game</button>
+    <div id="header">
+      <h1>Mbed Air Hockey</h1>
+      <h4>Carlos Mego, Noah Roberts and Arjun Sabnis</h4>
+      <h2 id="winner"></h6>
+    </div>
+    <div id="scoreboard">
+      <div id="player2" class="card">
+        <span class="playerLabel">Player 2</span><br>
+        <span id="player2Score" class="playerScore">0</span>
+      </div>
+      <div id="player1" class="card">
+        <span class="playerLabel">Player 1</span><br>
+        <span id="player1Score" class="playerScore">0</span>
+      </div>
+    </div>
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 900.16667">
+      <defs>
+        <image id="image" width="48" height="48" xlink:href="data:image/png;base64,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"/>
+      </defs>
+      <title>air-hockey-design</title>
+      <g id="Table">
+        <g class="cls-1">
+          <rect class="cls-2" x="1.33057" y="0.66667" width="497.33887" height="899"/>
+          <path d="M701.19506,17V915H204.85618V17H701.19506m1-1H203.85618V916H702.19506V16Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+        <path class="cls-3" d="M453.02478,16.83333H552.6934c0,59.42991-44.992,108.33334-99.66862,108.33334-54.45741,0-99.35-48.51215-99.66693-107.70282Z" transform="translate(-203.02562 -15.83333)"/>
+        <path class="cls-3" d="M453.02647,914.33333H353.35785c0-59.42991,44.992-108.33333,99.66862-108.33333,54.45741,0,99.35,48.51214,99.66693,107.70282Z" transform="translate(-203.02562 -15.83333)"/>
+        <g>
+          <path class="cls-4" d="M453.85622,378.33334a87.51478,87.51478,0,1,1-61.76965,25.67221,86.63837,86.63837,0,0,1,61.76965-25.67221m0-4c-50.45792,0-91.36214,41.04053-91.36217,91.66663s40.90419,91.66669,91.36211,91.66669S545.21828,516.62613,545.21831,466s-40.90417-91.66669-91.36209-91.66669Z" transform="translate(-203.02562 -15.83333)"/>
+          <line class="cls-5" y1="449.33333" x2="159.46844" y2="449.33333"/>
+          <line class="cls-5" x1="341.36213" y1="449.33333" x2="500" y2="449.33333"/>
+          <ellipse class="cls-4" cx="250" cy="450.16667" rx="16.6113" ry="16.66667"/>
+        </g>
+        <g>
+          <ellipse class="cls-6" cx="79.00137" cy="64.13725" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="64.13725" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="64.13725" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="64.13725" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="64.13725" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="149.92157" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="149.92157" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="149.92157" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="149.92157" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="149.92157" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="235.70588" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="235.70588" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="235.70588" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="235.70588" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="235.70588" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="321.4902" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="321.4902" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="321.4902" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="321.4902" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="321.4902" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="407.27451" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="407.27451" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="407.27451" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="407.27451" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="407.27451" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="493.05882" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="493.05882" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="493.05882" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="493.05882" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="493.05882" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="578.84314" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="578.84314" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="578.84314" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="578.84314" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="578.84314" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="664.62745" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="664.62745" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="664.62745" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="664.62745" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="664.62745" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="750.41176" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="750.41176" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="750.41176" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="750.41176" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="750.41176" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="79.00137" cy="836.19608" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="164.50068" cy="836.19608" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="250" cy="836.19608" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="335.49932" cy="836.19608" rx="3.41997" ry="3.43137"/>
+          <ellipse class="cls-6" cx="420.99863" cy="836.19608" rx="3.41997" ry="3.43137"/>
+        </g>
+      </g>
+      <g id="Puck">
+        <g>
+          <circle class="cls-4" cx="250" cy="450.16667" r="19.625"/>
+          <path d="M453.02562,446.75a19.25,19.25,0,1,1-19.25,19.25,19.27178,19.27178,0,0,1,19.25-19.25m0-.75a20,20,0,1,0,20,20,20,20,0,0,0-20-20Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+        <g class="cls-7">
+          <path d="M453.22564,449.5a16.5,16.5,0,1,1-16.5,16.5,16.51868,16.51868,0,0,1,16.5-16.5m0-.5a17,17,0,1,0,17,17,17,17,0,0,0-17-17Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+      </g>
+      <g id="Striker2">
+        <g>
+          <circle class="cls-4" cx="250" cy="450.16667" r="34.5"/>
+          <path d="M453.02562,432a34,34,0,1,1-34,34,34.03849,34.03849,0,0,1,34-34m0-1a35,35,0,1,0,35,35,35,35,0,0,0-35-35Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+        <g class="cls-8">
+          <use class="cls-9" transform="translate(227 427.16667)" xlink:href="#image"/>
+          <path d="M453.37563,449a17,17,0,1,1-17,17,17.01925,17.01925,0,0,1,17-17m0-.5a17.5,17.5,0,1,0,17.5,17.5,17.5,17.5,0,0,0-17.5-17.5Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+        <g class="cls-7">
+          <path d="M453.37563,436.75a29.25,29.25,0,1,1-29.25,29.25,29.28313,29.28313,0,0,1,29.25-29.25m0-.5a29.75,29.75,0,1,0,29.75,29.75,29.75,29.75,0,0,0-29.75-29.75Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+      </g>
+      <g id="Striker1">
+        <g>
+          <circle class="cls-4" cx="250" cy="450.16667" r="34.5"/>
+          <path d="M453.02562,432a34,34,0,1,1-34,34,34.03849,34.03849,0,0,1,34-34m0-1a35,35,0,1,0,35,35,35,35,0,0,0-35-35Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+        <g class="cls-8">
+          <use class="cls-9" transform="translate(227 427.16667)" xlink:href="#image"/>
+          <path d="M453.37563,449a17,17,0,1,1-17,17,17.01925,17.01925,0,0,1,17-17m0-.5a17.5,17.5,0,1,0,17.5,17.5,17.5,17.5,0,0,0-17.5-17.5Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+        <g class="cls-7">
+          <path d="M453.37563,436.75a29.25,29.25,0,1,1-29.25,29.25,29.28313,29.28313,0,0,1,29.25-29.25m0-.5a29.75,29.75,0,1,0,29.75,29.75,29.75,29.75,0,0,0-29.75-29.75Z" transform="translate(-203.02562 -15.83333)"/>
+        </g>
+      </g>
+    </svg>
+    <script src="js/snap-svg-min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

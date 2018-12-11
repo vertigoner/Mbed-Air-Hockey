@@ -1,0 +1,113 @@
+body {
+    font-family:tahoma;
+    font-size:12px;
+}
+
+#header {
+    text-align: center;
+    display: block;
+}
+
+svg {
+    display: block;
+    background-color: #CCC;
+    margin: 30px auto;
+    transform-origin: center;
+}
+
+#flip {
+    visibility: hidden;
+}
+
+.card {
+    background-color: #EEEEEE;
+    border: 1px solid rgba(0,0,0,0.02);
+    border-radius: 4px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 2px 2px rgba(0,0,0,0.05),
+      0 0 4px 1px rgba(0,0,0,0.02);
+}
+
+#scoreboard {
+    /* display: inline-block; */
+    float: left;
+    position: absolute;
+    top: 30vh;
+
+}
+
+#scoreboard div {
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+.playerLabel {
+    font-size: 16px;
+}
+
+.playerScore {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 70px; 
+}
+
+.striker {
+    fill: red;
+}
+
+.puck {
+    fill: red;
+    transform-origin: center;
+}
+
+.cls-1 {
+    opacity: 0.95;
+}
+
+.cls-2 {
+    fill: #fafbfe;
+}
+
+.cls-3 {
+    fill: #5f9eff;
+    stroke: #3f5aff;
+    stroke-width: 2px;
+    opacity: 0.83;
+}
+
+.cls-3, .cls-5, .cls-6 {
+    stroke-miterlimit: 10;
+}
+
+.cls-4 {
+    fill: #ff1d25;
+}
+
+.cls-5 {
+    fill: none;
+    stroke: #ff1d25;
+    stroke-width: 4px;
+}
+
+.cls-6 {
+    fill: #aaa;
+    stroke: #000;
+    stroke-width: 0.25px;
+    opacity: 0.4;
+}
+
+.cls-7 {
+    opacity: 0.62;
+}
+
+.cls-8 {
+    opacity: 0.67;
+}
+
+.cls-9 {
+    opacity: 0.75;
+}
